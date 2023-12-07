@@ -9,6 +9,29 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+  {% for  message in messages %}
+   <div class ="alert alert-{{message.tags}} alert-dismisable fade show" role = "alert">
+    <strong>Message:</strong>{{message}}
+    <button type="button" class ="close" date-dismiss = "alert" aria-label = "close">
+        <span arial-hidden = "true">&times;</span>
+    </div>
+    {% endfor %}
+
+    <H3>Welcome To the Authentication Page<H3>
+      {% if user.is_authenticated %}
+      <h3>Hello {{firstname}}</h3>
+      <h3>You are Succesfully logged in</h3>
+      <button type = "submit"><a href = "/signout">SignOut</a></button>
+ 
+      {% else %}
+ 
+      <button type="submit"><a href="/signup"> SignUp </a></button>
+      <button type="submit"><a href="/signin">SignIn</a></button>
+ 
+     {% endif %}
+ 
+ 
+
   <h1 class="Display-2">Index page</h1>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
